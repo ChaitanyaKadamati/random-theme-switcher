@@ -1,0 +1,107 @@
+{
+  "name": "random-theme-switcher",
+  "displayName": "Random Theme Switcher",
+  "description": "🎨 Automatically switches VS Code themes randomly at configurable intervals to keep your coding environment fresh and dynamic",
+  "version": "1.0.0",
+  "publisher": "Sri Krishna Chaitanya, Kadamati",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChaitanyaKadamati/random-theme-switcher.git"
+  },
+  "homepage": "https://github.com/ChaitanyaKadamati/random-theme-switcher#readme",
+  "bugs": {
+    "url": "https://github.com/ChaitanyaKadamati/random-theme-switcher/issues"
+  },
+  "keywords": [
+    "theme",
+    "themes",
+    "switcher",
+    "random",
+    "automatic",
+    "timer",
+    "productivity",
+    "customization",
+    "ui",
+    "appearance"
+  ],
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Themes",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "randomThemeSwitcher.enable",
+        "title": "Random Theme Switcher: Enable"
+      },
+      {
+        "command": "randomThemeSwitcher.disable",
+        "title": "Random Theme Switcher: Disable"
+      },
+      {
+        "command": "randomThemeSwitcher.switchNow",
+        "title": "Random Theme Switcher: Switch Theme Now"
+      },
+      {
+        "command": "randomThemeSwitcher.refreshThemes",
+        "title": "Random Theme Switcher: Refresh Available Themes"
+      }
+    ],
+    "configuration": {
+      "title": "Random Theme Switcher",
+      "properties": {
+        "randomThemeSwitcher.enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable or disable automatic theme switching"
+        },
+        "randomThemeSwitcher.intervalMinutes": {
+          "type": "number",
+          "default": 30,
+          "minimum": 1,
+          "description": "Interval in minutes between theme switches"
+        },
+        "randomThemeSwitcher.themeList": {
+          "type": "array",
+          "default": [
+            "Default Dark Modern",
+            "Default Light Modern",
+            "Default Dark+",
+            "Default Light+",
+            "Monokai",
+            "Solarized Dark",
+            "Solarized Light"
+          ],
+          "description": "List of theme IDs to randomly switch between",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.0.0"
+  }
+}
